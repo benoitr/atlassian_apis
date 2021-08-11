@@ -192,7 +192,7 @@ class BacklogApi {
   Future<void> moveIssuesToBacklog({required Map<String, dynamic> body}) async {
     await _client.send(
       'post',
-      'agile/1.0/backlog/issue',
+      'rest/agile/1.0/backlog/issue',
       body: body,
     );
   }
@@ -210,7 +210,7 @@ class BacklogApi {
       {required int boardId, required Map<String, dynamic> body}) async {
     await _client.send(
       'post',
-      'agile/1.0/backlog/{boardId}/issue',
+      'rest/agile/1.0/backlog/{boardId}/issue',
       pathParameters: {
         'boardId': '$boardId',
       },
@@ -243,7 +243,7 @@ class BoardApi {
       int? filterId}) async {
     return await _client.send(
       'get',
-      'agile/1.0/board',
+      'rest/agile/1.0/board',
       queryParameters: {
         if (startAt != null) 'startAt': '$startAt',
         if (maxResults != null) 'maxResults': '$maxResults',
@@ -308,7 +308,7 @@ class BoardApi {
       {required Map<String, dynamic> body}) async {
     return await _client.send(
       'post',
-      'agile/1.0/board',
+      'rest/agile/1.0/board',
       body: body,
     ) as Map<String, Object?>;
   }
@@ -321,7 +321,7 @@ class BoardApi {
       {required int filterId, int? startAt, int? maxResults}) async {
     return await _client.send(
       'get',
-      'agile/1.0/board/filter/{filterId}',
+      'rest/agile/1.0/board/filter/{filterId}',
       pathParameters: {
         'filterId': '$filterId',
       },
@@ -340,7 +340,7 @@ class BoardApi {
   Future<Map<String, dynamic>> getBoard(int boardId) async {
     return await _client.send(
       'get',
-      'agile/1.0/board/{boardId}',
+      'rest/agile/1.0/board/{boardId}',
       pathParameters: {
         'boardId': '$boardId',
       },
@@ -352,7 +352,7 @@ class BoardApi {
   Future<void> deleteBoard(int boardId) async {
     await _client.send(
       'delete',
-      'agile/1.0/board/{boardId}',
+      'rest/agile/1.0/board/{boardId}',
       pathParameters: {
         'boardId': '$boardId',
       },
@@ -378,7 +378,7 @@ class BoardApi {
       String? expand}) async {
     return SearchResultsBean.fromJson(await _client.send(
       'get',
-      'agile/1.0/board/{boardId}/backlog',
+      'rest/agile/1.0/board/{boardId}/backlog',
       pathParameters: {
         'boardId': '$boardId',
       },
@@ -428,7 +428,7 @@ class BoardApi {
   Future<Map<String, dynamic>> getConfiguration(int boardId) async {
     return await _client.send(
       'get',
-      'agile/1.0/board/{boardId}/configuration',
+      'rest/agile/1.0/board/{boardId}/configuration',
       pathParameters: {
         'boardId': '$boardId',
       },
@@ -446,7 +446,7 @@ class BoardApi {
       String? done}) async {
     await _client.send(
       'get',
-      'agile/1.0/board/{boardId}/epic',
+      'rest/agile/1.0/board/{boardId}/epic',
       pathParameters: {
         'boardId': '$boardId',
       },
@@ -474,7 +474,7 @@ class BoardApi {
       String? expand}) async {
     await _client.send(
       'get',
-      'agile/1.0/board/{boardId}/epic/none/issue',
+      'rest/agile/1.0/board/{boardId}/epic/none/issue',
       pathParameters: {
         'boardId': '$boardId',
       },
@@ -506,7 +506,7 @@ class BoardApi {
       String? expand}) async {
     await _client.send(
       'get',
-      'agile/1.0/board/{boardId}/epic/{epicId}/issue',
+      'rest/agile/1.0/board/{boardId}/epic/{epicId}/issue',
       pathParameters: {
         'boardId': '$boardId',
         'epicId': '$epicId',
@@ -526,7 +526,7 @@ class BoardApi {
   Future<Map<String, dynamic>> getFeaturesForBoard(int boardId) async {
     return await _client.send(
       'get',
-      'agile/1.0/board/{boardId}/features',
+      'rest/agile/1.0/board/{boardId}/features',
       pathParameters: {
         'boardId': '$boardId',
       },
@@ -538,7 +538,7 @@ class BoardApi {
       {required int boardId, required Map<String, dynamic> body}) async {
     return await _client.send(
       'put',
-      'agile/1.0/board/{boardId}/features',
+      'rest/agile/1.0/board/{boardId}/features',
       pathParameters: {
         'boardId': '$boardId',
       },
@@ -566,7 +566,7 @@ class BoardApi {
       String? expand}) async {
     return SearchResultsBean.fromJson(await _client.send(
       'get',
-      'agile/1.0/board/{boardId}/issue',
+      'rest/agile/1.0/board/{boardId}/issue',
       pathParameters: {
         'boardId': '$boardId',
       },
@@ -594,7 +594,7 @@ class BoardApi {
       {required int boardId, required Map<String, dynamic> body}) async {
     await _client.send(
       'post',
-      'agile/1.0/board/{boardId}/issue',
+      'rest/agile/1.0/board/{boardId}/issue',
       pathParameters: {
         'boardId': '$boardId',
       },
@@ -628,7 +628,7 @@ class BoardApi {
       {required int boardId, int? startAt, int? maxResults}) async {
     await _client.send(
       'get',
-      'agile/1.0/board/{boardId}/project',
+      'rest/agile/1.0/board/{boardId}/project',
       pathParameters: {
         'boardId': '$boardId',
       },
@@ -657,7 +657,7 @@ class BoardApi {
   Future<void> getProjectsFull(int boardId) async {
     await _client.send(
       'get',
-      'agile/1.0/board/{boardId}/project/full',
+      'rest/agile/1.0/board/{boardId}/project/full',
       pathParameters: {
         'boardId': '$boardId',
       },
@@ -670,7 +670,7 @@ class BoardApi {
   Future<void> getBoardPropertyKeys(String boardId) async {
     await _client.send(
       'get',
-      'agile/1.0/board/{boardId}/properties',
+      'rest/agile/1.0/board/{boardId}/properties',
       pathParameters: {
         'boardId': boardId,
       },
@@ -685,7 +685,7 @@ class BoardApi {
       {required String boardId, required String propertyKey}) async {
     await _client.send(
       'get',
-      'agile/1.0/board/{boardId}/properties/{propertyKey}',
+      'rest/agile/1.0/board/{boardId}/properties/{propertyKey}',
       pathParameters: {
         'boardId': boardId,
         'propertyKey': propertyKey,
@@ -704,7 +704,7 @@ class BoardApi {
       {required String boardId, required String propertyKey}) async {
     await _client.send(
       'put',
-      'agile/1.0/board/{boardId}/properties/{propertyKey}',
+      'rest/agile/1.0/board/{boardId}/properties/{propertyKey}',
       pathParameters: {
         'boardId': boardId,
         'propertyKey': propertyKey,
@@ -719,7 +719,7 @@ class BoardApi {
       {required String boardId, required String propertyKey}) async {
     await _client.send(
       'delete',
-      'agile/1.0/board/{boardId}/properties/{propertyKey}',
+      'rest/agile/1.0/board/{boardId}/properties/{propertyKey}',
       pathParameters: {
         'boardId': boardId,
         'propertyKey': propertyKey,
@@ -732,7 +732,7 @@ class BoardApi {
       {required int boardId, int? startAt, int? maxResults}) async {
     return await _client.send(
       'get',
-      'agile/1.0/board/{boardId}/quickfilter',
+      'rest/agile/1.0/board/{boardId}/quickfilter',
       pathParameters: {
         'boardId': '$boardId',
       },
@@ -750,7 +750,7 @@ class BoardApi {
       {required int boardId, required int quickFilterId}) async {
     return await _client.send(
       'get',
-      'agile/1.0/board/{boardId}/quickfilter/{quickFilterId}',
+      'rest/agile/1.0/board/{boardId}/quickfilter/{quickFilterId}',
       pathParameters: {
         'boardId': '$boardId',
         'quickFilterId': '$quickFilterId',
@@ -762,7 +762,7 @@ class BoardApi {
   Future<Map<String, dynamic>> getReportsForBoard(int boardId) async {
     return await _client.send(
       'get',
-      'agile/1.0/board/{boardId}/reports',
+      'rest/agile/1.0/board/{boardId}/reports',
       pathParameters: {
         'boardId': '$boardId',
       },
@@ -778,7 +778,7 @@ class BoardApi {
       String? state}) async {
     await _client.send(
       'get',
-      'agile/1.0/board/{boardId}/sprint',
+      'rest/agile/1.0/board/{boardId}/sprint',
       pathParameters: {
         'boardId': '$boardId',
       },
@@ -807,7 +807,7 @@ class BoardApi {
       String? expand}) async {
     await _client.send(
       'get',
-      'agile/1.0/board/{boardId}/sprint/{sprintId}/issue',
+      'rest/agile/1.0/board/{boardId}/sprint/{sprintId}/issue',
       pathParameters: {
         'boardId': '$boardId',
         'sprintId': '$sprintId',
@@ -836,7 +836,7 @@ class BoardApi {
       String? released}) async {
     await _client.send(
       'get',
-      'agile/1.0/board/{boardId}/version',
+      'rest/agile/1.0/board/{boardId}/version',
       pathParameters: {
         'boardId': '$boardId',
       },
